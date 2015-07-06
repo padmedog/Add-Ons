@@ -1,0 +1,92 @@
+//--- OBJECT WRITE BEGIN ---
+new GuiControl(chaseCam) {
+   profile = "GuiDefaultProfile";
+   horizSizing = "right";
+   vertSizing = "bottom";
+   position = "0 0";
+   extent = "640 480";
+   minExtent = "8 2";
+   visible = "1";
+
+   new GuiWindowCtrl() {
+      profile = "GuiWindowProfile";
+      horizSizing = "right";
+      vertSizing = "bottom";
+      position = "159 217";
+      extent = "285 150";
+      minExtent = "8 2";
+      visible = "1";
+      text = "Chase Cam";
+      maxLength = "255";
+      resizeWidth = "1";
+      resizeHeight = "1";
+      canMove = "1";
+      canClose = "1";
+      canMinimize = "1";
+      canMaximize = "1";
+      minSize = "50 50";
+      closeCommand = "canvas.popDialog(\"chaseCam\");";
+
+      new GuiTextEditCtrl() {
+         profile = "GuiTextEditProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "14 100";
+         extent = "182 26";
+         minExtent = "8 2";
+         visible = "1";
+         variable = "$ChaseCam::delay";
+         altCommand = "getAbsoluteValue($ChaseCam::delay); serverConnection.chaseCam($ChaseCam::delay); canvas.popDialog(\"chaseCam\");";
+         maxLength = "255";
+         historySize = "0";
+         password = "0";
+         tabComplete = "0";
+         sinkAllKeyEvents = "0";
+      };
+      new GuiBitmapButtonCtrl(enter) {
+         profile = "BlockButtonProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "212 96";
+         extent = "63 31";
+         minExtent = "8 2";
+         visible = "1";
+         command = "getAbsoluteValue($ChaseCam::delay); serverConnection.chaseCam($ChaseCam::delay); canvas.popDialog(\"chaseCam\");";
+         text = "Enter";
+         groupNum = "-1";
+         buttonType = "PushButton";
+         bitmap = "base/client/ui/button1";
+         lockAspectRatio = "0";
+         alignLeft = "0";
+         overflowImage = "0";
+         mKeepCached = "0";
+         mColor = "0 255 0 255";
+      };
+      new GuiMLTextCtrl() {
+         profile = "BlockDefaultProfile";
+         horizSizing = "right";
+         vertSizing = "bottom";
+         position = "32 44";
+         extent = "219 42";
+         minExtent = "8 2";
+         visible = "1";
+         lineSpacing = "2";
+         allowColorChars = "0";
+         maxChars = "-1";
+         text = "Movie Studio, set this to 9999999 and you get to move around without the camera moving (3rd person only)";
+         maxBitmapHeight = "-1";
+         selectable = "1";
+      };
+   };
+};
+//--- OBJECT WRITE END ---
+
+function getAbsoluteValue( $ChaseCam::delay ) {
+      if( $ChaseCam::delay < 0 ) {
+            $ChaseCam::delay = -1 * $ChaseCam::delay;
+      }
+      if( $ChaseCam::delay > 1000) {
+            $ChaseCam::delay = 1000;
+      }
+return $ChaseCam::delay;
+}

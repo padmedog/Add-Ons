@@ -1,0 +1,22 @@
+To avoid any confusion this year, I've decided to make an install guide for these loops.
+
+/DO NOT/ copy the Install Guide file into the Music directory for blockland.
+
+NON STEAM
+1. Extract the files into Documents\Blockland\Add-Ons\Music
+
+STEAM
+1. (Drive Letter)\Program Files (x86)\Steam\SteamApps\common\Blockland\Add-Ons\Music
+
+FAQ:
+Q. Do I need to make a music_long folder this year?
+A. No, this all goes in the music folder because we decided to work with blocklands loop limitations.
+
+Q. Will we provide a cache.db file?
+A. Yes, read the "Download" section of the thread.
+
+Q. Do I need to keep the old loops?
+A. We're not using all of the old loops, so no. These include a few loops from years before, though.
+
+Q. Am I allowed to use these loops on other servers?
+A. Sure!
